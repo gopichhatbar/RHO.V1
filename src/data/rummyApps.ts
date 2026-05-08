@@ -8,7 +8,7 @@ export const rummyApps: RummyApp[] = [
   {
     id: 1,
     slug: "realgameapps-gold", // ✅ Clean slug for routing
-    name: "Y1 Gold",
+    name: "Y1 Game",
     image: "/images/benner/Y1.com.jpeg",
     logo: "/images/logo/Y1 GAME.jpeg",
     tagline: "India's #1 Realgameapps",
