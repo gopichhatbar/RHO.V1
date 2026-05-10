@@ -1,7 +1,7 @@
 import type { Plugin } from "vite";
 import { rummyApps } from "../src/data/rummyApps";
 
-const SITE_URL = "https://Realgameapps.com";
+const SITE_URL = "https://realgameapps.com";
 
 interface Route {
   path: string;
