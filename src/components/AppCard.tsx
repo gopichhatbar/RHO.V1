@@ -106,7 +106,7 @@ const AppCard = ({ app, index }: AppCardProps) => {
 
           <div className="flex-1 min-w-0">
             <Link
-              to={`/app/${app.slug}`}
+              to={`/${app.slug}`}
               className="font-bold text-foreground text-base truncate hover:text-primary block"
             >
               {app.name}

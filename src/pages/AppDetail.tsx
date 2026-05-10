@@ -41,7 +41,7 @@ const AppDetail = () => {
 
   const relatedApps = rummyApps.filter((a) => a.id !== app.id).slice(0, 3);
   const ratingCount = parseReviews(app.reviews);
-  const path = `/app/${app.slug}`;
+  const path = `/${app.slug}`;
 
   const productJsonLd = {
     "@context": "https://schema.org",
