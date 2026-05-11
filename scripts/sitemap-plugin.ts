@@ -21,7 +21,7 @@ const buildSitemap = (): string => {
   const today = new Date().toISOString().split("T")[0];
 
   const appRoutes: Route[] = rummyApps.map((app) => ({
-    path: `/app/${app.slug}`,
+    path: `/${app.slug}`,
     changefreq: "weekly",
     priority: 0.8,
   }));
