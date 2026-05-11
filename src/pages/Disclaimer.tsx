@@ -34,7 +34,7 @@ const sections = [
       "All real-money Realgameappsgames are strictly for adults aged 18 years and above.",
       "By accessing the real-money gaming content on this site, you confirm that you are at least 18 years old.",
       "Realgameapps strongly discourages access or participation by minors.",
-      "If you believe a minor is accessing this content, please contact us immediately at support@Realgameapps.com.",
+      "If you believe a minor is accessing this content, please contact us immediately at support@realgameapps.com.",
     ],
   },
   {

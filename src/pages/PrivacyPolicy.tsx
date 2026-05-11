@@ -70,7 +70,7 @@ const sections = [
       "Right to rectification: ask us to correct inaccurate or incomplete data.",
       "Right to erasure: request deletion of your personal data where we have no lawful basis to retain it.",
       "Right to withdraw consent: if processing is based on consent (e.g., newsletter), you may unsubscribe at any time.",
-      "To exercise any of these rights, email us at support@Realgameapps.com. We will respond within 30 days.",
+      "To exercise any of these rights, email us at support@realgameapps.com. We will respond within 30 days.",
     ],
   },
   {
@@ -78,8 +78,8 @@ const sections = [
     title: "Contact & Updates",
     content: [
       "If you have questions, concerns, or complaints about this Privacy Policy, please contact our team:",
-      "Email: support@Realgameapps.com",
-      "Contact page: Realgameapps.com/contact",
+      "Email: support@realgameapps.com",
+      "Contact page: realgameapps.com/contact",
       "We reserve the right to update this policy at any time. Material changes will be highlighted on our homepage and the 'Last updated' date at the top of this page will be revised. Continued use of the site after changes constitutes acceptance of the updated policy.",
     ],
   },
@@ -138,7 +138,7 @@ const PrivacyPolicy = () => {
       <main className="container py-12 max-w-3xl">
         {/* Intro card */}
         <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="bg-primary/5 border border-primary/20 rounded-2xl p-6 mb-8 text-sm text-muted-foreground leading-relaxed">
-          Your privacy matters to us. This policy explains what data Realgameapps collects when you visit <strong className="text-foreground">Realgameapps.com</strong>, how we use it, and the rights you have over it. Please read it carefully.
+          Your privacy matters to us. This policy explains what data Realgameapps collects when you visit <strong className="text-foreground">realgameapps.com</strong>, how we use it, and the rights you have over it. Please read it carefully.
         </motion.div>
 
         {/* Sections */}
