@@ -7,7 +7,7 @@ import { RummyApp } from "@/types/rummyApps"
 export const rummyApps: RummyApp[] = [
   {
     id: 1,
-    slug: "realgameapps-gold", // ✅ Clean slug for routing
+    slug: "Y1-Game", // ✅ Clean slug for routing
     name: "Y1 Game",
  images: [
     "https://sonagame.pro/wp-content/uploads/2026/03/c61f58bb-732c-48e2-ad05-e3888884bba0-686x1536.jpg",
@@ -37,7 +37,7 @@ export const rummyApps: RummyApp[] = [
   },
   {
     id: 2,
-    slug: "teen-patti-star",
+    slug: "M77game",
     name: "M77 game",
      images: [
     "/images/1.jpg",
@@ -67,7 +67,7 @@ export const rummyApps: RummyApp[] = [
   },
   {
     id: 3,
-    slug: "rummy-circle",
+    slug: "qq2",
     name: "qq2",
      images: [
     "/images/1.jpg",
@@ -127,7 +127,7 @@ export const rummyApps: RummyApp[] = [
 
   {
     id: 5,
-    slug: "rummy-circle",
+    slug: "23nano",
     name: "23nano",
  images: [
     "/images/1.jpg",
