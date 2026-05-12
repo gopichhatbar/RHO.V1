@@ -10,10 +10,10 @@ export const rummyApps: RummyApp[] = [
     slug: "Y1-Game", // ✅ Clean slug for routing
     name: "Y1 Game",
  images: [
-    "https://sonagame.pro/wp-content/uploads/2026/03/c61f58bb-732c-48e2-ad05-e3888884bba0-686x1536.jpg",
-    "https://sonagame.pro/wp-content/uploads/2026/03/c61f58bb-732c-48e2-ad05-e3888884bba0-686x1536.jpg",
-    "https://sonagame.pro/wp-content/uploads/2026/03/c61f58bb-732c-48e2-ad05-e3888884bba0-686x1536.jpg",
-    "",
+    "https://y1-com.in/wp-content/uploads/2025/01/y1-175x300.webp",
+    "https://y1-com.in/wp-content/uploads/2025/01/y1game-175x300.webp",
+    "https://y1-com.in/wp-content/uploads/2025/01/y1com-175x300.webp",
+    
   ],
     logo: "/images/logo/Y1 GAME.jpeg",
     tagline: "India's #1 Realgameapps",
