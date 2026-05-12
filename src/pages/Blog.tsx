@@ -1,26 +1,89 @@
+import {
+  lazy,
+  Suspense,
+  memo,
+  useMemo,
+} from "react";
+
 import { motion } from "framer-motion";
-import { Calendar, Clock, ArrowRight } from "lucide-react";
+
+import {
+  Calendar,
+  Clock,
+  ArrowRight,
+  ChevronRight,
+} from "lucide-react";
+
 import { Link } from "react-router-dom";
-////////lazy loading
-import { lazy, Suspense } from "react";
-const Header = lazy(() => import("@/components/Header"));
-const Footer = lazy(() => import("@/components/Footer"));
-// import Header from "@/components/Header";
-// import Footer from "@/components/Footer";
-import SEO, { SITE_URL } from "@/components/SEO";
+
+import SEO, {
+  SITE_URL,
+  websiteSchema,
+  organizationSchema,
+} from "@/components/SEO";
+
 import { blogPosts } from "@/api/blog";
 
+/* =========================
+   Lazy Loaded Components
+========================= */
+
+const Header = lazy(() => import("@/components/Header"));
+const Footer = lazy(() => import("@/components/Footer"));
+
+/* =========================
+   Animation
+========================= */
+
+const fadeUp = {
+  initial: {
+    opacity: 0,
+    y: 18,
+  },
+  whileInView: {
+    opacity: 1,
+    y: 0,
+  },
+  viewport: {
+    once: true,
+  },
+  transition: {
+    duration: 0.35,
+  },
+};
+
+/* =========================
+   Blog Page
+========================= */
+
 const Blog = () => {
- 
-      const blogJsonLd = [
+  /* =========================
+     Featured Post
+  ========================= */
+
+  const featuredPost = blogPosts?.[0];
+
+  const latestPosts = blogPosts?.slice(1);
+
+  /* =========================
+     Structured Data
+  ========================= */
+
+  const blogJsonLd = useMemo(
+    () => [
+      organizationSchema,
+
+      websiteSchema,
+
       {
         "@context": "https://schema.org",
         "@type": "Blog",
         name: "Realgameapps Blog",
         url: `${SITE_URL}/blog`,
         description:
-          "Latest articles on Realgameappsstrategies, tips, app reviews, and bonus offers in India.",
+          "Latest gaming guides, strategies, app reviews, and bonus offers in India.",
       },
+
       {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
@@ -39,120 +102,348 @@ const Blog = () => {
           },
         ],
       },
-//       It tells Google that each blog post is an article (BlogPosting).
-// It helps show details like title, date, and description in search results.
-// It improves your chances of getting rich results for blog posts.
-// It helps Google understand your blog content better
-      ...blogPosts.map((p) => ({
+
+      ...blogPosts.map((post) => ({
         "@context": "https://schema.org",
         "@type": "BlogPosting",
-        headline: p.title,
-        description: p.excerpt,
-        url: `${SITE_URL}/blog/${p.slug}`,
-        datePublished: p.date,
+
+        headline: post.title,
+
+        description: post.excerpt,
+
+        image: `${SITE_URL}${post.image}`,
+
+        url: `${SITE_URL}/blog/${post.slug}`,
+
+        mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
+
+        datePublished: post.date,
+
+        articleSection: post.category,
+
+        keywords: post.category,
+
         author: {
           "@type": "Organization",
           name: "Realgameapps",
         },
+
         publisher: {
           "@type": "Organization",
           name: "Realgameapps",
+
           logo: {
             "@type": "ImageObject",
             url: `${SITE_URL}/favicon.ico`,
           },
         },
-        articleSection: p.category,
       })),
-      ];
+    ],
+    []
+  );
 
   return (
-    <div className="min-h-screen bg-background">
-    
-      {/* ////////////////added keyword here for better rich */}
-      <SEO
-        title="RealgameappsBlog & Tips — Strategies, Guides & Offers in India | Realgameapps"
-        description="Read expert Realgameappsstrategies, beginner guides, app reviews, latest bonuses, and legal updates about online Realgameappsin India."
-        path="/blog"
-        jsonLd={blogJsonLd}
-        keywords="Realgameappsblog india, Realgameappsstrategies, Realgameappstips, best Realgameappss, online Realgameappsguide, Realgameappsbonuses india, Realgameappstricks, play Realgameappsonline"
-        type="website"
-/>
-      <Header />
+    <div className="min-h-screen bg-background text-foreground">
+      {/* =========================
+          SEO
+      ========================== */}
 
-      <section className="bg-gradient-hero py-16 md:py-20">
-        <div className="container text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <h1 className="font-heading text-4xl md:text-5xl font-extrabold text-primary-foreground mb-4">Blog & Tips</h1>
-            <p className="text-primary-foreground/70 text-lg max-w-xl mx-auto">
-              Expert Realgameappsstrategies, app reviews, latest offers, and industry news.
+      <SEO
+        title="Gaming Blog & Guides India | Realgameapps"
+        description="Read expert gaming guides, app reviews, bonus offers, strategies, and industry updates for Indian gamers."
+        path="/blog"
+        type="website"
+        image={`${SITE_URL}/cover.webp`}
+        jsonLd={blogJsonLd}
+        keywords="
+          gaming blog India,
+          gaming app reviews,
+          gaming guides,
+          gaming strategies,
+          safe gaming apps,
+          bonus offers,
+          online gaming India,
+          Realgameapps
+        "
+      />
+
+      {/* =========================
+          Preload Featured Image
+      ========================== */}
+
+      {featuredPost?.image && (
+        <link
+          rel="preload"
+          as="image"
+          href={featuredPost.image}
+        />
+      )}
+
+      {/* =========================
+          Header
+      ========================== */}
+
+      <Suspense fallback={<div className="h-16" />}>
+        <Header />
+      </Suspense>
+
+      {/* =========================
+          Breadcrumb
+      ========================== */}
+
+      <nav
+        aria-label="Breadcrumb"
+        className="border-b border-border bg-muted/30"
+      >
+        <div className="container mx-auto px-4 py-3">
+          <ol className="flex items-center gap-2 text-sm text-muted-foreground">
+            <li>
+              <Link
+                to="/"
+                className="hover:text-foreground transition-colors"
+              >
+                Home
+              </Link>
+            </li>
+
+            <ChevronRight className="w-4 h-4" />
+
+            <li className="text-foreground font-medium">
+              Blog
+            </li>
+          </ol>
+        </div>
+      </nav>
+
+      {/* =========================
+          Hero Section
+      ========================== */}
+
+      <section className="bg-gradient-hero py-16 md:py-24">
+        <div className="container mx-auto px-4 text-center">
+          <motion.div {...fadeUp}>
+            <h1 className="font-heading text-4xl md:text-6xl font-extrabold text-primary-foreground mb-5 tracking-tight">
+              Blog & Gaming Guides
+            </h1>
+
+            <p className="text-primary-foreground/80 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+              Explore gaming strategies, app reviews,
+              bonus offers, expert tips, and the latest
+              updates from the Indian gaming industry.
             </p>
           </motion.div>
         </div>
       </section>
 
-      <main className="container py-12">
-        {/* Featured Post */}
-        <motion.article initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} className="bg-card rounded-2xl border border-border overflow-hidden shadow-card mb-10">
-          <div className="grid grid-cols-1 md:grid-cols-2">
-            {/* <div className={`bg-gradient-to-br ${blogPosts[0].color} p-10 flex items-center justify-center min-h-[200px]`}>
-              <span className="font-heading text-5xl font-extrabold text-primary-foreground/20">01</span>
-            </div> */}
-            <div className="{`bg-gradient-to-br ${blogPosts[0].color} min-h-[200px] overflow-hidden">
-  <img
-    src={blogPosts[0].image}
-    alt={blogPosts[0].title}
-    className="w-full h-full object-cover"
-  />
-</div>
-            <div className="p-8 flex flex-col justify-center">
-              <span className="text-xs font-semibold text-primary bg-primary/10 px-2.5 py-1 rounded-full w-fit mb-3">{blogPosts[0].category}</span>
-              <h2 className="font-heading text-2xl font-bold text-foreground mb-2">{blogPosts[0].title}</h2>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-4">{blogPosts[0].excerpt}</p>
-              <div className="flex items-center gap-4 text-xs text-muted-foreground mb-4">
-                <span className="flex items-center gap-1"><Calendar className="w-3 h-3" />{blogPosts[0].date}</span>
-                <span className="flex items-center gap-1"><Clock className="w-3 h-3" />{blogPosts[0].readTime} read</span>
-              </div>
-              <Link to={`/blog/${blogPosts[0].slug}`} className="text-primary font-semibold text-sm flex items-center gap-1 hover:underline w-fit">
-                Read More <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
-          </div>
-        </motion.article>
+      {/* =========================
+          Main Content
+      ========================== */}
 
-        {/* Blog Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {blogPosts.slice(1).map((post, i) => (
-            <motion.article key={post.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.08 }} className="bg-card rounded-2xl border border-border overflow-hidden shadow-card hover:shadow-card-hover transition-all group">
-              <div className="h-36 overflow-hidden">
-  <img
-    src={post.image}
-    alt={post.title}
-    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-  />
-</div>
-              <div className="p-5">
-                <span className="text-[10px] font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded-full">{post.category}</span>
-                <h3 className="font-heading font-bold text-foreground mt-2 mb-1.5 text-sm leading-snug group-hover:text-primary transition-colors">{post.title}</h3>
-                <p className="text-muted-foreground text-xs leading-relaxed mb-3 line-clamp-2">{post.excerpt}</p>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3 text-[10px] text-muted-foreground">
-                    <span className="flex items-center gap-1"><Calendar className="w-2.5 h-2.5" />{post.date}</span>
-                    <span className="flex items-center gap-1"><Clock className="w-2.5 h-2.5" />{post.readTime}</span>
+      <main
+        role="main"
+        className="container mx-auto px-4 py-14"
+      >
+        {/* =========================
+            Featured Post
+        ========================== */}
+
+        {featuredPost && (
+          <section
+            aria-labelledby="featured-post-heading"
+            className="mb-14"
+          >
+            <motion.article
+              {...fadeUp}
+              className="bg-card border border-border rounded-3xl overflow-hidden shadow-card hover:shadow-lg transition-shadow"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2">
+                {/* Featured Image */}
+
+                <div
+                  className={`bg-gradient-to-br ${featuredPost.color} min-h-[280px] overflow-hidden`}
+                >
+                  <img
+                    src={featuredPost.image}
+                    alt={featuredPost.title}
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                {/* Featured Content */}
+
+                <div className="p-8 md:p-10 flex flex-col justify-center">
+                  <span className="text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full w-fit mb-4">
+                    {featuredPost.category}
+                  </span>
+
+                  <h2
+                    id="featured-post-heading"
+                    className="font-heading text-3xl font-bold mb-4 leading-tight"
+                  >
+                    {featuredPost.title}
+                  </h2>
+
+                  <p className="text-muted-foreground leading-relaxed mb-6">
+                    {featuredPost.excerpt}
+                  </p>
+
+                  <div className="flex items-center gap-5 text-sm text-muted-foreground mb-6">
+                    <span className="flex items-center gap-1.5">
+                      <Calendar className="w-4 h-4" />
+                      {featuredPost.date}
+                    </span>
+
+                    <span className="flex items-center gap-1.5">
+                      <Clock className="w-4 h-4" />
+                      {featuredPost.readTime} read
+                    </span>
                   </div>
-                  <Link to={`/blog/${post.slug}`} className="text-primary text-xs font-semibold flex items-center gap-0.5 hover:underline">
-                    Read <ArrowRight className="w-3 h-3" />
+
+                  <Link
+                    to={`/blog/${featuredPost.slug}`}
+                    className="inline-flex items-center gap-2 text-primary font-semibold hover:underline w-fit"
+                    aria-label={`Read article: ${featuredPost.title}`}
+                  >
+                    Read Full Article
+
+                    <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
               </div>
             </motion.article>
-          ))}
-        </div>
+          </section>
+        )}
+
+        {/* =========================
+            Latest Posts
+        ========================== */}
+
+        <section
+          aria-labelledby="latest-posts-heading"
+        >
+          <motion.div {...fadeUp}>
+            <h2
+              id="latest-posts-heading"
+              className="font-heading text-3xl font-bold mb-10"
+            >
+              Latest Articles
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+            {latestPosts?.map((post, index) => (
+              <motion.article
+                key={post.id}
+                {...fadeUp}
+                transition={{
+                  duration: 0.3,
+                  delay: index * 0.05,
+                }}
+                className="group bg-card border border-border rounded-3xl overflow-hidden shadow-card hover:shadow-lg transition-all"
+              >
+                {/* Image */}
+
+                <div className="h-52 overflow-hidden">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+
+                {/* Content */}
+
+                <div className="p-6">
+                  <span className="text-[11px] font-semibold text-primary bg-primary/10 px-2.5 py-1 rounded-full">
+                    {post.category}
+                  </span>
+
+                  <h3 className="font-heading text-lg font-bold mt-4 mb-3 leading-snug group-hover:text-primary transition-colors">
+                    {post.title}
+                  </h3>
+
+                  <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3 mb-5">
+                    {post.excerpt}
+                  </p>
+
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-4 text-xs text-muted-foreground">
+                      <span className="flex items-center gap-1">
+                        <Calendar className="w-3.5 h-3.5" />
+                        {post.date}
+                      </span>
+
+                      <span className="flex items-center gap-1">
+                        <Clock className="w-3.5 h-3.5" />
+                        {post.readTime}
+                      </span>
+                    </div>
+
+                    <Link
+                      to={`/blog/${post.slug}`}
+                      aria-label={`Read article: ${post.title}`}
+                      className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
+                    >
+                      Read
+
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+        </section>
+
+        {/* =========================
+            Internal SEO Links
+        ========================== */}
+
+        <section className="mt-20 bg-card border border-border rounded-3xl p-8 md:p-10 text-center">
+          <motion.div {...fadeUp}>
+            <h2 className="font-heading text-3xl font-bold mb-4">
+              Explore More
+            </h2>
+
+            <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
+              Discover trusted gaming apps, expert
+              recommendations, and responsible gaming
+              resources on Realgameapps.
+            </p>
+
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link
+                to="/about"
+                className="inline-flex items-center justify-center rounded-xl bg-primary px-5 py-3 text-primary-foreground font-medium hover:opacity-90 transition-opacity"
+              >
+                About Us
+              </Link>
+
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center rounded-xl border border-border px-5 py-3 font-medium hover:bg-muted transition-colors"
+              >
+                Contact
+              </Link>
+            </div>
+          </motion.div>
+        </section>
       </main>
 
-      <Footer />
+      {/* =========================
+          Footer
+      ========================== */}
+
+      <Suspense fallback={<div className="h-24" />}>
+        <Footer />
+      </Suspense>
     </div>
   );
 };
 
-export default Blog;
+export default memo(Blog);
