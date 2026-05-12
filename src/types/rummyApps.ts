@@ -2,7 +2,7 @@ export interface RummyApp {
  id: number;
   slug: string;
   name: string;
-  image: string; // ✅ added
+  images: string[]; // ✅ added
   logo: string
   tagline: string;
   rating: number;

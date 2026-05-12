@@ -69,7 +69,7 @@ const AppCard = ({ app, index }: AppCardProps) => {
       {/* 🔥 MAIN IMAGE - USING app.image */}
       <div className="relative h-40 w-full overflow-hidden">
         <img
-          src={app.image} // ✅ Fixed: using app.image instead of hardcoded path
+         src={app.images?.[0] || app.image}// ✅ Fixed: using app.image instead of hardcoded path
           alt={app.name}
           loading="lazy"
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"

@@ -2,19 +2,13 @@ import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { getAppBySlug, rummyApps } from "@/data/rummyApps";
+import { withdrawalSteps, faqs, bonusDetails, withdrawalHighlights, shareLinks  } from "@/data/apppage";
+import {parseReviews} from "@/utils/appHelpers"
 import { lazy, Suspense } from "react";
 
 const Header = lazy(() => import("@/components/Header"));
 const Footer = lazy(() => import("@/components/Footer"));
 
-// ─── Helpers ─────────────────────────────────────────────────────────────────
-const parseReviews = (reviews: string): number => {
-  const num = parseFloat(reviews);
-  if (Number.isNaN(num)) return 0;
-  if (/M/i.test(reviews)) return Math.round(num * 1_000_000);
-  if (/K/i.test(reviews)) return Math.round(num * 1_000);
-  return Math.round(num);
-};
 
 const renderStars = (rating: number) => {
   const full = Math.floor(rating);
@@ -39,22 +33,7 @@ const renderStars = (rating: number) => {
   );
 };
 
-// ─── Static content ───────────────────────────────────────────────────────────
-const withdrawalSteps = [
-  { step: "01", title: "Go to Wallet", desc: "Tap the Wallet icon from the home screen and select 'Withdraw'." },
-  { step: "02", title: "Choose Method", desc: "Select UPI, Paytm, PhonePe, or direct bank transfer." },
-  { step: "03", title: "Enter Amount", desc: "Enter the amount above the minimum withdrawal limit." },
-  { step: "04", title: "Confirm & Receive", desc: "Verify with OTP. Funds arrive within 24 hours (usually instant)." },
-];
 
-const faqs = [
-  { q: "Is the app free to download?", a: "Yes! The app is completely free to download and install. No hidden charges or subscription fees." },
-  { q: "Is my money safe on this platform?", a: "Yes. The platform uses SSL encryption and RNG-certified gameplay. Withdrawals are processed securely via UPI and bank transfer." },
-  { q: "How do I claim the welcome bonus?", a: "Simply download the app, register an account, and the welcome bonus is credited instantly to your in-game wallet." },
-  { q: "What is the minimum withdrawal amount?", a: "The minimum withdrawal varies by app — check the App Info section. Payouts are processed within 24 hours via UPI, Paytm, or bank transfer." },
-  { q: "Can I play on iOS?", a: "Platform availability is listed in the App Info section. Most apps support Android; some also support iOS and Web." },
-  { q: "Is this app legal in India?", a: "Skill-based gaming platforms are legal in most Indian states. Real-money gaming is restricted in Andhra Pradesh, Telangana, Assam, and Odisha." },
-];
 
 // ─── Component ────────────────────────────────────────────────────────────────
 export default function TeenPattiPage() {
@@ -64,6 +43,7 @@ export default function TeenPattiPage() {
   const [descOpen, setDescOpen] = useState(false);
   const [downloading, setDownloading] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+
 
   // 404 fallback
   if (!app) {
@@ -116,6 +96,9 @@ export default function TeenPattiPage() {
     }, 800);
   };
 
+  // Extract unique game types
+  const uniqueGameTypes = [...new Set(app.gameTypes)];
+
   return (
     <div className="min-h-screen bg-gray-50 font-sans text-gray-800">
 
@@ -129,13 +112,11 @@ export default function TeenPattiPage() {
         <meta property="og:title" content={`${app.name} APK – ${app.bonus} Welcome Bonus`} />
         <meta property="og:description" content={app.description} />
         <meta property="og:url" content={pageUrl} />
-        <meta property="og:image" content={app.image} />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_IN" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${app.name} APK – ${app.bonus} Bonus`} />
         <meta name="twitter:description" content={app.description} />
-        <meta name="twitter:image" content={app.image} />
         <script type="application/ld+json">{JSON.stringify(schema)}</script>
       </Helmet>
 
@@ -236,13 +217,14 @@ export default function TeenPattiPage() {
         {/* SHARE BAR */}
         <div className="bg-white border border-gray-200 rounded-xl px-5 py-3 flex flex-wrap items-center gap-2">
           <span className="text-xs text-gray-400 mr-1">Share:</span>
-          {[
-            ["f Facebook", `https://facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}`],
-            ["🐦 Twitter", `https://twitter.com/intent/tweet?url=${encodeURIComponent(pageUrl)}&text=Check+out+${encodeURIComponent(app.name)}!`],
-            ["✈ Telegram", `https://t.me/share/url?url=${encodeURIComponent(pageUrl)}&text=${encodeURIComponent(app.name)}`],
-          ].map(([label, href]) => (
-            <a key={label as string} href={href as string} target="_blank" rel="noopener noreferrer"
-              className="border border-gray-200 text-xs px-3 py-1.5 rounded hover:bg-gray-50 transition-colors">
+          {shareLinks.map(({ label, url }) => (
+            <a
+              key={label}
+              href={url(pageUrl, app.name)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-gray-200 text-xs px-3 py-1.5 rounded hover:bg-gray-50 transition-colors"
+            >
               {label}
             </a>
           ))}
@@ -306,7 +288,7 @@ export default function TeenPattiPage() {
             <div className="bg-white border border-gray-200 rounded-xl p-5">
               <h2 className="text-[11px] font-bold uppercase tracking-widest text-gray-400 border-b-2 border-blue-600 pb-2 mb-4">Game Types</h2>
               <div className="flex flex-wrap gap-2">
-                {[...new Set(app.gameTypes)].map((g) => (
+                {uniqueGameTypes.map((g) => (
                   <span key={g} className="bg-blue-50 border border-blue-100 text-blue-700 text-xs font-medium px-3 py-1.5 rounded-full">
                     🎮 {g}
                   </span>
@@ -330,17 +312,12 @@ export default function TeenPattiPage() {
             <div className="bg-white border border-gray-200 rounded-xl p-5">
               <h2 className="text-[11px] font-bold uppercase tracking-widest text-gray-400 border-b-2 border-green-500 pb-2 mb-4">🎁 Bonus Details</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {[
-                  { icon: "🎁", title: "Welcome Bonus", amount: app.bonus, desc: "Credited instantly on first registration. No deposit required." },
-                  { icon: "🏆", title: "Max Bonus", amount: app.maxBonus, desc: "Maximum bonus available on this platform for new and active players." },
-                  { icon: "👥", title: "Refer & Earn", amount: app.referralBonus, desc: "Invite friends and earn for each successful referral." },
-                  { icon: "💸", title: "Min Withdrawal", amount: app.minWithdraw, desc: "Minimum amount needed to initiate a withdrawal from your wallet." },
-                ].map((b) => (
+                {bonusDetails.map((b) => (
                   <div key={b.title} className="border border-gray-100 rounded-xl p-4 bg-gradient-to-br from-green-50 to-white flex gap-3 items-start">
                     <span className="text-2xl">{b.icon}</span>
                     <div>
                       <div className="font-bold text-gray-900 text-sm">{b.title}</div>
-                      <div className="text-green-600 font-extrabold text-lg leading-tight">{b.amount}</div>
+                      <div className="text-green-600 font-extrabold text-lg leading-tight">{app[b.key as keyof typeof app]}</div>
                       <div className="text-xs text-gray-500 mt-0.5 leading-relaxed">{b.desc}</div>
                     </div>
                   </div>
@@ -353,7 +330,7 @@ export default function TeenPattiPage() {
             <div className="bg-white border border-gray-200 rounded-xl p-5">
               <h2 className="text-[11px] font-bold uppercase tracking-widest text-gray-400 border-b-2 border-yellow-400 pb-2 mb-4">💸 Withdrawal Process</h2>
               <div className="flex flex-wrap gap-2 mb-5">
-                {[{ icon: "⚡", label: "Instant Payouts" }, { icon: "🔒", label: "100% Secure" }, { icon: "🏦", label: "Bank / UPI" }, { icon: "✅", label: "Verified Users" }].map((b) => (
+                {withdrawalHighlights.map((b) => (
                   <span key={b.label} className="flex items-center gap-1.5 bg-yellow-50 border border-yellow-200 text-yellow-800 text-xs font-semibold px-3 py-1.5 rounded-full">
                     {b.icon} {b.label}
                   </span>
@@ -394,20 +371,66 @@ export default function TeenPattiPage() {
               </div>
             </div>
 
-            {/* App Banner Image */}
-            {app.image && !app.image.startsWith("javascript:") && (
-              <div className="bg-white border border-gray-200 rounded-xl p-5">
-                <h2 className="text-[11px] font-bold uppercase tracking-widest text-gray-400 border-b-2 border-blue-600 pb-2 mb-4">App Preview</h2>
-                <div className="rounded-xl overflow-hidden border border-gray-100">
-                  <img
-                    src={app.image}
-                    alt={`${app.name} banner`}
-                    className="w-full object-cover max-h-60"
-                    onError={(e) => {
-                      const el = e.currentTarget as HTMLImageElement;
-                      if (el.parentElement) el.parentElement.style.display = "none";
-                    }}
-                  />
+            {/* Multiple App Images Section */}
+            {app.images && app.images.length > 0 && (
+              <div className="bg-white border border-gray-200 rounded-xl p-5 mt-6">
+                <h2 className="text-[11px] font-bold uppercase tracking-widest text-gray-400 border-b-2 border-blue-600 pb-2 mb-5">
+                  App Screenshots
+                </h2>
+                <div
+                  className={`
+                    grid gap-5
+                    ${
+                      app.images.length === 1
+                        ? "grid-cols-1"
+                        : app.images.length === 2
+                        ? "grid-cols-1 sm:grid-cols-2"
+                        : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+                    }
+                  `}
+                >
+                  {app.images.map((img: string, index: number) => (
+                    <a
+                      key={`${img}-${index}`}
+                      href={img}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`
+                        block
+                        rounded-2xl
+                        overflow-hidden
+                        border
+                        border-gray-100
+                        bg-gray-50
+                        transition-all
+                        duration-300
+                        hover:shadow-lg
+                        ${app.images.length === 1 ? "max-w-5xl mx-auto" : ""}
+                      `}
+                    >
+                      <img
+                        src={img}
+                        alt={`Screenshot ${index + 1}`}
+                        className="
+                          w-full
+                          h-auto
+                          object-contain
+                          min-h-[250px]
+                          max-h-[750px]
+                          transition-all
+                          duration-300
+                          hover:scale-[1.02]
+                          cursor-pointer
+                        "
+                        onError={(e) => {
+                          const el = e.currentTarget as HTMLImageElement;
+                          if (el.parentElement) {
+                            el.parentElement.style.display = "none";
+                          }
+                        }}
+                      />
+                    </a>
+                  ))}
                 </div>
               </div>
             )}
