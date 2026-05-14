@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- ===== CORE PAGES ===== -->
+  <url>
+    <loc>https://realgameapps.com/</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://realgameapps.com/blog</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://realgameapps.com/about</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://realgameapps.com/contact</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <url>
+    <loc>https://realgameapps.com/privacy-policy</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://realgameapps.com/terms-and-conditions</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://realgameapps.com/disclaimer</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- ===== APP CATEGORIES ===== -->
+  <url>
+    <loc>https://realgameapps.com/rummy-apps</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://realgameapps.com/teen-patti-apps</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://realgameapps.com/fantasy-apps</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://realgameapps.com/poker-apps</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://realgameapps.com/ludo-apps</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://realgameapps.com/cricket-apps</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ===== INDIVIDUAL APP REVIEW PAGES ===== -->
+  <url>
+    <loc>https://realgameapps.com/apps/rummy-circle</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://realgameapps.com/apps/rummy-culture</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://realgameapps.com/apps/junglee-rummy</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://realgameapps.com/apps/classic-rummy</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://realgameapps.com/apps/taj-rummy</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://realgameapps.com/apps/teen-patti-gold</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://realgameapps.com/apps/dream11</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://realgameapps.com/apps/my11circle</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ===== BONUS & OFFERS PAGES ===== -->
+  <url>
+    <loc>https://realgameapps.com/bonuses</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://realgameapps.com/bonuses/signup-bonus</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://realgameapps.com/bonuses/referral-bonus</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://realgameapps.com/bonuses/deposit-bonus</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ===== GUIDES & HOW-TO ===== -->
+  <url>
+    <loc>https://realgameapps.com/guides</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://realgameapps.com/guides/how-to-download-rummy-apk</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://realgameapps.com/guides/how-to-withdraw-winnings</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://realgameapps.com/guides/how-to-play-rummy</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://realgameapps.com/guides/real-money-gaming-india</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- ===== DOWNLOADS ===== -->
+  <url>
+    <loc>https://realgameapps.com/download</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://realgameapps.com/download/android</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://realgameapps.com/download/ios</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ===== COMPARISONS ===== -->
+  <url>
+    <loc>https://realgameapps.com/compare</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://realgameapps.com/compare/best-rummy-apps-india</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://realgameapps.com/compare/highest-bonus-apps</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://realgameapps.com/compare/instant-withdrawal-apps</loc>
+    <lastmod>2025-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>

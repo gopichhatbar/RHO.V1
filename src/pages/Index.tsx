@@ -90,7 +90,7 @@ const extraApps = filteredApps.slice(6);
     itemListElement: rummyApps.map((app, idx) => ({
       "@type": "ListItem",
       position: idx + 1,
-      url: `${SITE_URL}/app/${app.slug}`,
+      url: `${SITE_URL}/${app.slug}`,
       name: app.name,
     })),
   },

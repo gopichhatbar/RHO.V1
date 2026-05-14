@@ -11,7 +11,7 @@ const sections = [
     icon: CheckSquare,
     title: "1. Acceptance of Terms",
     content: [
-      "By accessing or using Realgameapps.in you agree to be bound by these Terms of Use.",
+      "By accessing or using realgameapps.com you agree to be bound by these Terms of Use.",
       "If you do not agree with any part of these terms, you must immediately stop using this website.",
       "These terms apply to all visitors, registered users, and anyone who accesses or uses our services.",
       "We may revise these terms at any time. Continued use after a revision constitutes acceptance of the updated terms.",
@@ -116,8 +116,8 @@ const sections = [
     title: "11. Contact Us",
     content: [
       "If you have questions or concerns about these Terms of Use, please reach out to us:",
-      "Email: support@Realgameapps.in",
-      "Contact page: Realgameapps.in/contact",
+      "Email: support@realgameapps.com",
+      "Contact page: realgameapps.com/contact",
       "We aim to respond to all enquiries within 3 business days.",
     ],
   },
@@ -175,7 +175,7 @@ const TermsOfUse = () => {
       <main className="container py-12 max-w-3xl">
         {/* Intro */}
         <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="bg-blue-500/5 border border-blue-500/20 rounded-2xl p-6 mb-8 text-sm text-muted-foreground leading-relaxed">
-          Please read these Terms of Use carefully before using <strong className="text-foreground">Realgameapps.in</strong>. By accessing or using this website, you confirm that you have read, understood, and agree to be bound by these terms.
+          Please read these Terms of Use carefully before using <strong className="text-foreground">realgameapps.com</strong>. By accessing or using this website, you confirm that you have read, understood, and agree to be bound by these terms.
         </motion.div>
 
         <div className="space-y-6">

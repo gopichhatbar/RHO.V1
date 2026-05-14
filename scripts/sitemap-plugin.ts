@@ -1,7 +1,7 @@
 import type { Plugin } from "vite";
 import { rummyApps } from "../src/data/rummyApps";
 
-const SITE_URL = "https://Realgameapps.in";
+const SITE_URL = "https://realgameapps.com";
 
 interface Route {
   path: string;
@@ -21,7 +21,7 @@ const buildSitemap = (): string => {
   const today = new Date().toISOString().split("T")[0];
 
   const appRoutes: Route[] = rummyApps.map((app) => ({
-    path: `/app/${app.slug}`,
+    path: `/${app.slug}`,
     changefreq: "weekly",
     priority: 0.8,
   }));

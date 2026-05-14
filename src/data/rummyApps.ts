@@ -1,35 +1,21 @@
-import assets from "../assets/img/download (2).jfif";
 
-export interface RummyApp {
- id: number;
-  slug: string;
-  name: string;
-  image: string; // ✅ added
-  tagline: string;
-  rating: number;
-  reviews: string;
-  bonus: string;
-  minWithdraw: string;
-  category: string[];
-  featured?: boolean;
-  color: string;
-  description: string;
-  pros: string[];
-  cons: string[];
-  paymentMethods: string[];
-  platforms: string[];
-  gameTypes: string[];
-  maxBonus: string;
-  referralBonus: string;
-  established: string;
-}
+import { RummyApp } from "@/types/rummyApps"
+
+
+
 
 export const rummyApps: RummyApp[] = [
   {
     id: 1,
-    slug: "rummy-gold",
-    name: "RealgameappsGold",
-    image: "https://source.unsplash.com/400x300/?rummy,card-game",
+    slug: "Y1-Game", // ✅ Clean slug for routing
+    name: "Y1 Game",
+ images: [
+    "https://y1-com.in/wp-content/uploads/2025/01/y1-175x300.webp",
+    "https://y1-com.in/wp-content/uploads/2025/01/y1game-175x300.webp",
+    "https://y1-com.in/wp-content/uploads/2025/01/y1com-175x300.webp",
+    
+  ],
+    logo: "/images/logo/Y1 GAME.jpeg",
     tagline: "India's #1 Realgameapps",
     rating: 4.8,
     reviews: "1.2M",
@@ -47,12 +33,19 @@ export const rummyApps: RummyApp[] = [
     maxBonus: "₹5,000",
     referralBonus: "₹1,000",
     established: "2018",
+    downloadUrl: "https://acc.y1online.net/api/web/share/index.html?ic=AA0TRZDF&ts=1777441080&m=2&lang=en&id=1", // ✅ Store actual download URL here
   },
   {
     id: 2,
-    slug: "teen-patti-star",
-    name: "Teen Patti Star",
-    image: "https://source.unsplash.com/400x300/?poker,casino",
+    slug: "M77game",
+    name: "M77 game",
+     images: [
+    "https://m77game.in/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-05-at-10.43.25-PM.jpeg",
+    "https://m77game.in/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-05-at-10.43.26-PM.jpeg",
+    "https://m77game.in/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-05-at-10.43.27-PM.jpeg",
+    
+  ],
+    logo: "images/logo/M77.GAME.jpeg",
     tagline: "Play & Win Real Cash",
     rating: 4.7,
     reviews: "980K",
@@ -70,12 +63,19 @@ export const rummyApps: RummyApp[] = [
     maxBonus: "₹3,500",
     referralBonus: "₹500",
     established: "2022",
+    downloadUrl: "https://invite.36m77.click/99995-in-1/index.html?uid=2047966905208033282&type=1&invite=qx3Ftx",
   },
   {
     id: 3,
-    slug: "rummycircle",
-    name: "RummyCircle",
-    image: "https://www.linkedin.com/posts/all-rummy-app-135627317_hello-friends-once-again-i-have-brought-activity-7214198651999465472-f9yc",
+    slug: "qq2game",
+    name: "qq2",
+     images: [
+    "https://qq2games.in/wp-content/uploads/2025/12/WhatsApp-Image-2025-12-07-at-10.21.33-PM-461x1024.jpeg",
+    "https://qq2games.in/wp-content/uploads/2025/12/WhatsApp-Image-2025-12-07-at-10.21.32-PM-1-461x1024.jpeg",
+    "https://qq2games.in/wp-content/uploads/2025/12/WhatsApp-Image-2025-12-07-at-10.21.32-PM-461x1024.jpeg",
+    
+  ],
+    logo: "/images/logo/QQ2Logo.jpeg",
     tagline: "Trusted by 5Cr+ Players",
     rating: 4.6,
     reviews: "2.1M",
@@ -92,164 +92,220 @@ export const rummyApps: RummyApp[] = [
     maxBonus: "₹2,000",
     referralBonus: "₹500",
     established: "2012",
+    downloadUrl: "https://acc.qq2game.com/api/web/share/index.html?ic=AS61HCSD&ts=1777441860&m=2&lang=en&id=1",
   },
-  {
+
+{
     id: 4,
-    slug: "junglee-rummy",
-    name: "Junglee Rummy",
-    image: "https://source.unsplash.com/400x300/?card-game,table",
-    tagline: "Best RealgameappsExperience",
-    rating: 4.5,
-    reviews: "750K",
-    bonus: "₹5,250",
-    minWithdraw: "₹200",
-    category: ["cash"],
-    color: "from-violet-500 to-purple-500",
-    description: "Premium Realgameappsgameplay with high bonus.",
-    pros: ["High bonus", "Fair play", "Quick support"],
-    cons: ["High withdrawal limit"],
-    paymentMethods: ["UPI", "Bank Transfer"],
-    platforms: ["Android", "iOS", "Web"],
-    gameTypes: ["Points", "Pool", "Deals"],
-    maxBonus: "₹5,250",
-    referralBonus: "₹1,500",
-    established: "2015",
-  },
-  {
-    id: 5,
-    slug: "a23-rummy",
-    name: "A23 Rummy",
-    image: "RHO.V1/src/img/download (3).jfif",
-    tagline: "Play RealgameappsOnline",
-    rating: 4.4,
-    reviews: "1.5M",
-    bonus: "₹10,000",
+    slug: "sona-bet-game",
+    name: "Sona-Bet-game",
+    images: [
+    "https://nanogame.in/wp-content/uploads/2025/06/Nano-game-APK-768x1707.jpg",
+    "https://nanogame.in/wp-content/uploads/2025/06/Nano-Game-Bonus-768x1707.jpg",
+    "https://nanogame.in/wp-content/uploads/2025/06/NanoGame-Earn-768x1707.jpg",
+    
+  ],
+    logo: "https://sonagame.pro/wp-content/uploads/2026/03/8dfbf897-a2cb-411b-89c5-6ada7a44dbd1.jpg",
+    tagline: "Trusted by 5Cr+ Players",
+    rating: 4.6,
+    reviews: "2.1M",
+    bonus: "₹2,000",
     minWithdraw: "₹100",
     category: ["top", "cash"],
-    color: "from-blue-500 to-indigo-500",
-    description: "High bonus + big tournaments.",
-    pros: ["Huge bonus", "Big tournaments"],
-    cons: ["Bonus conditions complex"],
-    paymentMethods: ["UPI", "Cards"],
+    color: "from-emerald-500 to-teal-500",
+    description: "Trusted Realgameappsplatform with huge player base.",
+    pros: ["Trusted brand", "Large community", "Secure gameplay"],
+    cons: ["Lower bonus"],
+    paymentMethods: ["UPI", "Paytm", "Net Banking"],
     platforms: ["Android", "iOS", "Web"],
     gameTypes: ["Points", "Pool", "Deals"],
-    maxBonus: "₹10,000",
-    referralBonus: "₹2,000",
-    established: "2007",
+    maxBonus: "₹2,000",
+    referralBonus: "₹500",
+    established: "2012",
+    downloadUrl: "https://google.sona.bet/50002/index.html?uid=2047966490361212929&type=1&invite=3PUD41",
   },
+
   {
+    id: 5,
+    slug: "nanogame",
+    name: "nano-game",
+ images: [
+     "https://nanogame.in/wp-content/uploads/2025/06/Nano-game-APK-768x1707.jpg",
+    "https://nanogame.in/wp-content/uploads/2025/06/Nano-Game-Bonus-768x1707.jpg",
+    "https://nanogame.in/wp-content/uploads/2025/06/NanoGame-Earn-768x1707.jpg",
+    
+  ],
+    logo: "https://nanogame.in/wp-content/uploads/2025/06/Nano-Game-300x300.png",
+    tagline: "Trusted by 5Cr+ Players",
+    rating: 4.6,
+    reviews: "2.1M",
+    bonus: "₹2,000",
+    minWithdraw: "₹100",
+    category: ["top", "cash"],
+    color: "from-emerald-500 to-teal-500",
+    description: "Trusted Realgameappsplatform with huge player base.",
+    pros: ["Trusted brand", "Large community", "Secure gameplay"],
+    cons: ["Lower bonus"],
+    paymentMethods: ["UPI", "Paytm", "Net Banking"],
+    platforms: ["Android", "iOS", "Web"],
+    gameTypes: ["Points", "Pool", "Deals"],
+    maxBonus: "₹2,000",
+    referralBonus: "₹500",
+    established: "2012",
+    downloadUrl: "https://invite.23nano.click/88888-in-1/index.html?uid=2047963559168614401&type=1&invite=qAbwON",
+  },
+
+{
     id: 6,
-    slug: "mpl-rummy",
-    name: "MPL Rummy",
-    image: "https://source.unsplash.com/400x300/?gaming,smartphone",
-    tagline: "Multi-Game Platform",
+    slug: "Teen-patti-Master-game",
+    name: "Teen patti Master-game",
+ images: [
+    "https://mastergame.in/wp-content/uploads/2025/12/supar-cash-back-teen-patti-master.png",
+    "/images/2.jpg",
+    "/images/3.jpg",
+    "/images/4.jpg",
+  ],
+    logo: "https://lh3.googleusercontent.com/sitesv/AA5AbUDqF58Sb8et6w6svS8tDZNLDpWayL9KudOmHTtlBU2iNhZqj-nsnD0DmjX534RoClpbmEskKD3uItO3c7W7I6sU5xyJXBH2UdLlKof1sWdtiMOpDJ2_gTCadDq8nklFDoUcqdBKJPqJcR3KyHmNVnuz-ixiuQyEi9ow7emwSer_KvIhYiNxpvttfv0=w1280",
+    tagline: "Trusted by 5Cr+ Players",
     rating: 4.6,
-    reviews: "3.2M",
-    bonus: "₹7,500",
-    minWithdraw: "₹50",
-    category: ["top", "new"],
-    color: "from-sky-500 to-cyan-500",
-    description: "Realgameapps+ 60+ games in one app.",
-    pros: ["Multi games", "Low withdrawal"],
-    cons: ["Distracting"],
-    paymentMethods: ["UPI", "Paytm"],
-    platforms: ["Android", "iOS"],
-    gameTypes: ["Rummy", "Fantasy"],
-    maxBonus: "₹7,500",
-    referralBonus: "₹750",
-    established: "2018",
+    reviews: "2.1M",
+    bonus: "₹2,000",
+    minWithdraw: "₹100",
+    category: ["top", "cash"],
+    color: "from-emerald-500 to-teal-500",
+    description: "Trusted Realgameappsplatform with huge player base.",
+    pros: ["Trusted brand", "Large community", "Secure gameplay"],
+    cons: ["Lower bonus"],
+    paymentMethods: ["UPI", "Paytm", "Net Banking"],
+    platforms: ["Android", "iOS", "Web"],
+    gameTypes: ["Points", "Pool", "Deals"],
+    maxBonus: "₹2,000",
+    referralBonus: "₹500",
+    established: "2012",
+    downloadUrl: "https://chrstm.com/aw/quabd6?f=w&p=wa&l=en&tp=m147&rtk=TVHoXwO8Rg%2BUcq%2FB8RXATEU4UwOr7KYEwWFoE6673NfMxeLT5E8JWPmsWeKdoUri7uqTHQg0euekdy1R1nh60FhpQEyEj0%2FdmiqDtSLffG7IBS8PsQOQamDTeH1B11nTTMvZcTGXx2HsN5FZUy4RdCoRc5Nre5TVmTtFVNe04k9BDgj4azTThfsDLRD%2FzFed&scenes=&scene=",
   },
-   {
-    id: 7,
-    slug: "mpl-rummy",
-    name: "MPL Rummy",
-    image: "https://source.unsplash.com/400x300/?gaming,smartphone",
-    tagline: "Multi-Game Platform",
-    rating: 4.6,
-    reviews: "3.2M",
-    bonus: "₹7,500",
-    minWithdraw: "₹50",
-    category: ["top", "new"],
-    color: "from-sky-500 to-cyan-500",
-    description: "Realgameapps+ 60+ games in one app.",
-    pros: ["Multi games", "Low withdrawal"],
-    cons: ["Distracting"],
-    paymentMethods: ["UPI", "Paytm"],
-    platforms: ["Android", "iOS"],
-    gameTypes: ["Rummy", "Fantasy"],
-    maxBonus: "₹7,500",
-    referralBonus: "₹750",
-    established: "2018",
+{
+    id:7,
+    slug: "Lama-game",
+    name: "Lama-game",
+ images: [
+   "https://nanogame.in/wp-content/uploads/2025/06/Nano-game-APK-768x1707.jpg",
+    "https://nanogame.in/wp-content/uploads/2025/06/Nano-Game-Bonus-768x1707.jpg",
+    "https://nanogame.in/wp-content/uploads/2025/06/NanoGame-Earn-768x1707.jpg",
+  ],
+    logo: "images/logo/lama game.logo.jpeg",
+    tagline: "Play & Earn with Casual Games",
+  rating: 3.9,
+  reviews: "5K+",
+  bonus: "₹200 - ₹500",
+  minWithdraw: "₹100",
+  category: ["new", "cash", "slots"],
+  color: "from-emerald-500 to-teal-500",
+  description: "A new real-cash gaming platform offering casual games, spin rewards, and referral earnings.",
+  
+  pros: [
+    "Low entry bonus",
+    "Referral earning system",
+    "Simple gameplay"
+  ],
+  
+  cons: [
+    "Not a verified brand",
+    "Mixed user reviews",
+    "Risk involved in real-money play"
+  ],
+  
+  paymentMethods: ["UPI", "Paytm", "Wallet"],
+  platforms: ["Android", "Web"],
+  
+  gameTypes: ["Spin", "Slots", "Casual Games","Spin",
+  "Slots",
+  "Casual Games",
+  "Card Games",
+  "Rummy",
+  "Poker",
+  "Teen Patti",
+  "Fantasy Sports",
+  "Arcade Games",
+  "Quiz Games",
+  "Lucky Draw",
+  "Scratch Cards",
+  "Dice Games",
+  "Fishing Games",
+  "Roulette",
+  "Jackpot Games",
+  "Mini Games",
+  "Multiplayer Games"],
+  
+  maxBonus: "₹500",
+  referralBonus: "₹100 - ₹300",
+  established: "2024",
+    downloadUrl: "https://invite.24lama.click/88884-in-1/index.html?uid=2047964741132656641&type=1&invite=FHYJCd",
   },
-   {
-    id: 7,
-    slug: "mpl-rummy",
-    name: "MPL Rummy",
-    image: "https://source.unsplash.com/400x300/?gaming,smartphone",
-    tagline: "Multi-Game Platform",
-    rating: 4.6,
-    reviews: "3.2M",
-    bonus: "₹7,500",
-    minWithdraw: "₹50",
-    category: ["top", "new"],
-    color: "from-sky-500 to-cyan-500",
-    description: "Realgameapps+ 60+ games in one app.",
-    pros: ["Multi games", "Low withdrawal"],
-    cons: ["Distracting"],
-    paymentMethods: ["UPI", "Paytm"],
-    platforms: ["Android", "iOS"],
-    gameTypes: ["Rummy", "Fantasy"],
-    maxBonus: "₹7,500",
-    referralBonus: "₹750",
-    established: "2018",
+  
+
+  {
+    id:8,
+    slug: "Bigo-Game",
+    name: "Bigo-Game",
+   images: [
+    "https://sonagame.pro/wp-content/uploads/2026/03/c61f58bb-732c-48e2-ad05-e3888884bba0-686x1536.jpg",
+     "https://nanogame.in/wp-content/uploads/2025/06/Nano-Game-Bonus-768x1707.jpg",
+    "https://nanogame.in/wp-content/uploads/2025/06/NanoGame-Earn-768x1707.jpg",
+  ],
+    logo: "images/logo/BIgi Win.jpeg",
+    tagline: "Play & Earn with Casual Games",
+  rating: 4.6,
+  reviews: "15K+",
+  bonus: "₹100 - ₹1000",
+  minWithdraw: "₹100",
+  category: ["new", "cash", "slots"],
+  color: "from-emerald-500 to-teal-500",
+  description: "A new real-cash gaming platform offering casual games, spin rewards, and referral earnings.",
+  
+  pros: [
+    "Low entry bonus",
+    "Referral earning system",
+    "Simple gameplay"
+  ],
+  
+  cons: [
+    "Not a verified brand",
+    "Mixed user reviews",
+    "Risk involved in real-money play"
+  ],
+  
+  paymentMethods: ["UPI", "Paytm", "Wallet"],
+  platforms: ["Android", "Web"],
+  
+  gameTypes: ["Spin", "Slots", "Casual Games","Spin",
+  "Slots",
+  "Casual Games",
+  "Card Games",
+  "Rummy",
+  "Poker",
+  "Teen Patti",
+  "Fantasy Sports",
+  "Arcade Games",
+  "Quiz Games",
+  "Lucky Draw",
+  "Scratch Cards",
+  "Dice Games",
+  "Fishing Games",
+  "Roulette",
+  "Jackpot Games",
+  "Mini Games",
+  "Multiplayer Games"],
+  
+  maxBonus: "₹500",
+  referralBonus: "₹100 - ₹300",
+  established: "2024",
+    downloadUrl: "https://invite.69bigowin.click/99996-in-1/index.html?uid=2034327940897865730&type=1&invite=EBbfyo",
   },
-   {
-    id: 6,
-    slug: "mpl-rummy",
-    name: "MPL Rummy",
-    image: "https://source.unsplash.com/400x300/?gaming,smartphone",
-    tagline: "Multi-Game Platform",
-    rating: 4.6,
-    reviews: "3.2M",
-    bonus: "₹7,500",
-    minWithdraw: "₹50",
-    category: ["top", "new"],
-    color: "from-sky-500 to-cyan-500",
-    description: "Realgameapps+ 60+ games in one app.",
-    pros: ["Multi games", "Low withdrawal"],
-    cons: ["Distracting"],
-    paymentMethods: ["UPI", "Paytm"],
-    platforms: ["Android", "iOS"],
-    gameTypes: ["Rummy", "Fantasy"],
-    maxBonus: "₹7,500",
-    referralBonus: "₹750",
-    established: "2018",
-  },
-   {
-    id: 6,
-    slug: "mpl-rummy",
-    name: "MPL Rummy",
-    image: "https://source.unsplash.com/400x300/?gaming,smartphone",
-    tagline: "Multi-Game Platform",
-    rating: 4.6,
-    reviews: "3.2M",
-    bonus: "₹7,500",
-    minWithdraw: "₹50",
-    category: ["top", "new"],
-    color: "from-sky-500 to-cyan-500",
-    description: "Realgameapps+ 60+ games in one app.",
-    pros: ["Multi games", "Low withdrawal"],
-    cons: ["Distracting"],
-    paymentMethods: ["UPI", "Paytm"],
-    platforms: ["Android", "iOS"],
-    gameTypes: ["Rummy", "Fantasy"],
-    maxBonus: "₹7,500",
-    referralBonus: "₹750",
-    established: "2018",
-  },
+  
 ];
 
-export const categories = [
+export  const categories = [
   { id: "all", label: "All Apps" },
   { id: "top", label: "🔥 Top Rated" },
   { id: "cash", label: "💰 Cash Games" },

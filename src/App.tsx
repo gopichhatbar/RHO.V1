@@ -7,9 +7,11 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import { SearchProvider } from "./context/SearchContext.tsx";
+import ReactGA from "react-ga4";
 
 // Code-split secondary routes to keep initial bundle lean
-const AppDetail = lazy(() => import("./pages/AppDetail.tsx"));
+
+const TeenPattiPage = lazy(() => import("./pages/TeenPattiPage"));
 const BlogDetail = lazy(() => import("./pages/BlogDetail.tsx"));
 const About = lazy(() => import("./pages/About.tsx"));
 const Contact = lazy(() => import("./pages/Contact.tsx"));
@@ -38,7 +40,7 @@ const App = () => (
             <Suspense fallback={<RouteFallback />}>
               <Routes>
                 <Route path="/" element={<Index />} />
-                <Route path="/app/:slug" element={<AppDetail />} />
+                <Route path="/:slug" element={<TeenPattiPage />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/blog" element={<Blog />} />

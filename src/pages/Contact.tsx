@@ -53,7 +53,7 @@ const Contact = () => {
           {/* Contact Info */}
           <div className="space-y-5">
             {[
-              { icon: Mail, title: "Email Us", value: "support@Realgameapps.in", desc: "For general inquiries" },
+              { icon: Mail, title: "Email Us", value: "support@realgameapps.com", desc: "For general inquiries" },
               
               { icon: MapPin, title: "Visit Us", value: "Mumbai, Maharashtra", desc: "India" },
               { icon: Clock, title: "Response Time", value: "Within 24 hours", desc: "We reply fast!" },
