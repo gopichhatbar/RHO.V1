@@ -97,8 +97,8 @@ export const rummyApps: RummyApp[] = [
 
 {
     id: 4,
-    slug: "sona-bit-game",
-    name: "Sona-Bit-game",
+    slug: "sona-bet-game",
+    name: "Sona-Bet-game",
     images: [
     "https://nanogame.in/wp-content/uploads/2025/06/Nano-game-APK-768x1707.jpg",
     "https://nanogame.in/wp-content/uploads/2025/06/Nano-Game-Bonus-768x1707.jpg",
@@ -157,8 +157,8 @@ export const rummyApps: RummyApp[] = [
 
 {
     id: 6,
-    slug: "Master-game",
-    name: "Master-game",
+    slug: "Teen-patti-Master-game",
+    name: "Teen patti Master-game",
  images: [
     "https://mastergame.in/wp-content/uploads/2025/12/supar-cash-back-teen-patti-master.png",
     "/images/2.jpg",
@@ -186,8 +186,8 @@ export const rummyApps: RummyApp[] = [
   },
 {
     id:7,
-    slug: "24lamagame",
-    name: "24-lamagane",
+    slug: "Lama-game",
+    name: "Lama-game",
  images: [
    "https://nanogame.in/wp-content/uploads/2025/06/Nano-game-APK-768x1707.jpg",
     "https://nanogame.in/wp-content/uploads/2025/06/Nano-Game-Bonus-768x1707.jpg",
@@ -246,8 +246,8 @@ export const rummyApps: RummyApp[] = [
 
   {
     id:8,
-    slug: "BIngo- Game",
-    name: "Bingo Game",
+    slug: "Bigo-Game",
+    name: "Bigo-Game",
    images: [
     "https://sonagame.pro/wp-content/uploads/2026/03/c61f58bb-732c-48e2-ad05-e3888884bba0-686x1536.jpg",
      "https://nanogame.in/wp-content/uploads/2025/06/Nano-Game-Bonus-768x1707.jpg",
