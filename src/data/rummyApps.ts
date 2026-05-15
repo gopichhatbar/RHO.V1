@@ -161,11 +161,11 @@ export const rummyApps: RummyApp[] = [
     name: "Teen patti Master-game",
  images: [
     "https://mastergame.in/wp-content/uploads/2025/12/supar-cash-back-teen-patti-master.png",
-    "/images/2.jpg",
+    "/images/",
     "/images/3.jpg",
     "/images/4.jpg",
   ],
-    logo: "https://lh3.googleusercontent.com/sitesv/AA5AbUDqF58Sb8et6w6svS8tDZNLDpWayL9KudOmHTtlBU2iNhZqj-nsnD0DmjX534RoClpbmEskKD3uItO3c7W7I6sU5xyJXBH2UdLlKof1sWdtiMOpDJ2_gTCadDq8nklFDoUcqdBKJPqJcR3KyHmNVnuz-ixiuQyEi9ow7emwSer_KvIhYiNxpvttfv0=w1280",
+    logo: "/images/logo/FAC.PNG",
     tagline: "Trusted by 5Cr+ Players",
     rating: 4.6,
     reviews: "2.1M",
